@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    var tamagotchi = Tamagotchi()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            Text(tamagotchi.displayStats())
+        }
     }
 }
 
