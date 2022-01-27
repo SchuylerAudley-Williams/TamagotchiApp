@@ -63,5 +63,19 @@ Your tamagotchi is not ill
         //assert
         XCTAssertEqual(testingStats, expected)
     }
+    
+    func testGoToToiletChangesNeedsToiletToFalse() {
+        //arrange
+        let tamagotchi = Tamagotchi()
+        var needsToilet = tamagotchi.needsToilet
+        needsToilet = true
+        let expected = false
+        
+        //act
+        tamagotchi.goToToilet()
+        
+        //assert
+        XCTAssertEqual(needsToilet, expected)
+    }
 
 }

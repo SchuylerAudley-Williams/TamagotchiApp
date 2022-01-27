@@ -55,16 +55,24 @@ class Tamagotchi: ObservableObject {
     }
     
     func feed(food: String) {
-        var increase = 1
+        var decrease = 1
         if food == "meal" {
-            increase = 2
+            decrease = 2
+        }
+        if self.hunger == 1 {
+            self.hunger = 0
+        } else if self.hunger > 0 {
+            self.hunger -= decrease
         }
         
-        if self.hunger > 0 {
-            self.hunger -= increase
-        }
         if self.happiness < 4 {
-            self.happiness -= increase
+            self.happiness += decrease
+        }
+    }
+    
+    func goToToilet() {
+        if self.needsToilet == true {
+            self.needsToilet = false
         }
     }
 }
